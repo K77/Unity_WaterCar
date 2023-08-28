@@ -28,8 +28,7 @@
             float _Height;
         CBUFFER_END
         
-        TEXTURE2D(_MainTex);
-        SAMPLER(sampler_MainTex);
+
         ENDHLSL
         
         
@@ -57,7 +56,8 @@
                 float3 viewDirWS:TEXCOORD0 ; 
                 float2 texcoord:TEXCOORD1  ;
             };
-
+        TEXTURE2D(_MainTex);
+        SAMPLER(sampler_MainTex);
             float4 ComputeNDCPos(float4 posCS)
             {
                float4 posNDC    = 0;
