@@ -30,31 +30,33 @@
         
         TEXTURE2D(_MainTex);
         SAMPLER(sampler_MainTex);
-
-        struct  a2v
-        {
-            float4 positionOS:POSITION ;
-            float3 normalOS:NORMAL;
-            float2 texcoord:TEXCOORD0;
-        } ;
-
-        struct v2f
-        {
-            float4 positionCS:SV_POSITION;
-            float4 positionUV:TEXCOORD2;
-            float3 normalWS:NORMAL;
-            float3 viewDirWS:TEXCOORD0 ; 
-            float2 texcoord:TEXCOORD1  ;
-        };
         ENDHLSL
+        
+        
         Pass
-        {NAME"MainPass"
+        {
             Tags{
                 "LightMode"="UniversalForward"
             }
             HLSLPROGRAM
             #pragma vertex vert1
             #pragma fragment  frag1
+
+            struct  a2v
+            {
+                float4 positionOS:POSITION ;
+                float3 normalOS:NORMAL;
+                float2 texcoord:TEXCOORD0;
+            } ;
+
+            struct v2f
+            {
+                float4 positionCS:SV_POSITION;
+                float4 positionUV:TEXCOORD2;
+                float3 normalWS:NORMAL;
+                float3 viewDirWS:TEXCOORD0 ; 
+                float2 texcoord:TEXCOORD1  ;
+            };
 
             float4 ComputeNDCPos(float4 posCS)
             {
